@@ -1,0 +1,39 @@
+# RoadAnnoter - Python dependencies
+# Install with:   pip install -r requirements.txt
+#
+# Equivalent pip commands, if you prefer to run them by hand:
+#   pip install "PyQt5>=5.15" "opencv-python>=4.8" "numpy>=1.24"
+#   pip install "torch>=2.0" "torchvision>=0.15"
+#   pip install "transformers>=4.30" "pillow>=9.0"
+#   pip install "segment-anything>=1.0"
+#   pip install "timm>=0.9"
+#   pip install https://github.com/ChaoningZhang/MobileSAM/archive/refs/heads/master.zip
+# Full notes, checkpoint links and licences: see REQUIREMENTS.md
+#
+# GPU users: install torch and torchvision FIRST with the command from
+# https://pytorch.org/get-started/locally/ and then run the line above.
+# Otherwise pip installs the default (usually CPU-only) build.
+
+# --- Core: the application, manual polygons, Edge Fill -----------------------
+PyQt5>=5.15
+opencv-python>=4.8
+numpy>=1.24
+
+# --- Training, own-model suggestions, torchvision suggestions, SAM -----------
+torch>=2.0
+torchvision>=0.15
+
+# --- SegFormer (Cityscapes) pretrained suggestions ---------------------------
+transformers>=4.30
+pillow>=9.0
+
+# --- SAM (original ViT-B / ViT-L / ViT-H checkpoints) ------------------------
+segment-anything>=1.0
+
+# --- MobileSAM (mobile_sam.pt) -----------------------------------------------
+# Required for mobile_sam.pt. Not on PyPI, so it is installed from a GitHub zip
+# archive (no Git needed). It imports timm but does not declare it, so timm is
+# listed here. Without this package the app falls back to a substitute encoder
+# and SAM masks are much worse.
+timm>=0.9
+mobile_sam @ https://github.com/ChaoningZhang/MobileSAM/archive/refs/heads/master.zip
